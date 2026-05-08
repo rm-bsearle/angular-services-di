@@ -24,7 +24,9 @@ import { CartService } from '@core/cart.service';
     {
       // Can use the class directly as the token
       provide: CartService,
-      useClass: CartService,
+      useFactory: () => {
+        return new CartService();
+      }
     }
   ],
   bootstrap: [AppComponent],
