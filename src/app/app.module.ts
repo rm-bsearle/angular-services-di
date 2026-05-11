@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CatalogModule } from '@catalog/catalog.module';
 import { provideHttpClient } from '@angular/common/http';
 import { CartService } from '@core/cart.service';
+import { IProductsServiceToken } from '@shared/products.service.interface';
+import { EngineersService } from './squad/engineers.services';
 
 
 @NgModule({
@@ -18,7 +20,10 @@ import { CartService } from '@core/cart.service';
   imports: [BrowserModule, AppRoutingModule, FormsModule, CatalogModule],
   providers: [
     provideHttpClient(),
-
+    {
+      provide: IProductsServiceToken,
+      useClass: EngineersService,
+    },
     // Could also provide the service using just the class, as a shorthand for the longer form below:
     // CartService,
     // {
