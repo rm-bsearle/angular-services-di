@@ -7,7 +7,7 @@ import { SiteHeaderComponent } from '@core/site-header/site-header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CatalogModule } from '@catalog/catalog.module';
 import { provideHttpClient } from '@angular/common/http';
-import { CartService } from '@core/cart.service';
+import { CART_OPTIONS_TOKEN, CartService } from '@core/cart.service';
 import { IProductsServiceToken } from '@shared/products.service.interface';
 import { EngineersService } from './squad/engineers.services';
 
@@ -23,6 +23,10 @@ import { EngineersService } from './squad/engineers.services';
     {
       provide: IProductsServiceToken,
       useClass: EngineersService,
+    },
+    {
+      provide: CART_OPTIONS_TOKEN,
+      useValue: { persistanceType: 'local', persistanceKey: 'cart' }
     },
     // Could also provide the service using just the class, as a shorthand for the longer form below:
     // CartService,
