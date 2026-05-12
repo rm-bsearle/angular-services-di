@@ -1,7 +1,7 @@
 import { computed, Inject, Injectable, InjectionToken, signal } from '@angular/core';
 import { Product } from '@shared/product.model';
 
-type CartOptions = {
+export type CartOptions = {
   persistanceType: string,
   persistanceKey: string,
 }
