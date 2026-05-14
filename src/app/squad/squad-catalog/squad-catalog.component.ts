@@ -8,13 +8,19 @@ import {
 } from '@shared/products.service.interface';
 import { ProductsService } from '@catalog/products.service';
 import { Observable } from 'rxjs';
+import { EngineersService } from '../engineers.services';
 
 @Component({
   selector: 'bot-catalog',
   standalone: false,
   templateUrl: './squad-catalog.component.html',
   styleUrls: ['./squad-catalog.component.css'],
-  providers: [],
+  providers: [
+    {
+      provide: IProductsServiceToken,
+      useClass: EngineersService,
+    },
+  ],
 })
 export class SquadCatalogComponent {
   squad: Observable<Product[]> = this.engineersService.getProducts();

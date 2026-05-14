@@ -20,10 +20,10 @@ import { EngineersService } from './squad/engineers.services';
   imports: [BrowserModule, AppRoutingModule, FormsModule, CatalogModule],
   providers: [
     provideHttpClient(),
-    {
-      provide: IProductsServiceToken,
-      useClass: EngineersService,
-    },
+    // {
+    //   provide: IProductsServiceToken,
+    //   useClass: EngineersService,
+    // },
     {
       provide: CART_OPTIONS_TOKEN,
       useValue: { persistanceType: 'local', persistanceKey: 'cart' }
